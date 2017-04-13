@@ -6,6 +6,7 @@ def get(year):
     URL = 'http://www.prosportstransactions.com/football/DraftTrades/Years/' + str(year) + '.htm'
     source = urllib.request.urlopen(URL).read()
     soup = bs.BeautifulSoup(source, 'lxml')
+    print(soup)
     for p in soup.findAll("p", class_='bodyCopySm'):
         trades.append(p.string)
     filter(None, trades)
